@@ -212,3 +212,12 @@ target_link_libraries(publisher ${catkin_LIBRARIES})
 
 add_executable(subscriber src/subscriber.cpp)
 target_link_libraries(subscriber ${catkin_LIBRARIES})
+
+add_executable(led_answer src/led_answer.cpp)
+target_link_libraries(led_answer ${catkin_LIBRARIES})
+
+add_executable(homework03_a src/homework03_a.cpp)
+target_link_libraries(homework03_a ${catkin_LIBRARIES})
+
+add_executable(homework03_b src/homework03_b.cpp)
+target_link_libraries(homework03_b ${catkin_LIBRARIES})

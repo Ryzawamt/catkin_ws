@@ -1,0 +1,4 @@
+<launch>
+  <node name="publisher" pkg="beginner_tutorials" type="publisher"/>
+  <node name="subscriber" pkg="beginner_tutorials" type="subscriber" output="screen"/>
+</launch>
