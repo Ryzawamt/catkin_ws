@@ -261,7 +261,9 @@ try:                                   #目的の処理を記述する
             digswitch(1, int(strtime[8]))    #左から1番目の7セグメントLEDへ、8番目の数字を表示する
             time.sleep(0.001)                #7セグメントLEDを切り替えるため、0.001秒待機する
             digswitch(2, int(strtime[9]))    #左から2番目の7セグメントLEDへ、9番目の数字を表示する
+            GPIO.output(DP, GPIO.HIGH)
             time.sleep(0.001)                #7セグメントLEDを切り替えるため、0.001秒待機する
+            GPIO.output(DP, GPIO.LOW)
             digswitch(3, int(strtime[10]))   #左から3番目の7セグメントLEDへ、10番目の数字を表示する
             time.sleep(0.001)                #7セグメントLEDを切り替えるため、0.001秒待機する
             digswitch(4, int(strtime[11]))   #左から4番目の7セグメントLEDへ、11番目の数字を表示する
@@ -371,7 +373,9 @@ try:                                   #目的の処理を記述する
             digswitch(1, int(alarm1))    #左から1番目の7セグメントLEDへ、alarm1の数字を表示する
             time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
             digswitch(2, int(alarm2))    #左から2番目の7セグメントLEDへ、alarm2の数字を表示する
+            GPIO.output(DP, GPIO.HIGH)
             time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
+            GPIO.output(DP, GPIO.LOW)
             digswitch(3, int(alarm3))   #左から3番目の7セグメントLEDへ、alarm3の数字を表示する
             time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
             digswitch(4, int(alarm4))   #左から4番目の7セグメントLEDへ、alarm4の数字を表示する
@@ -396,11 +400,13 @@ try:                                   #目的の処理を記述する
                         stopview = str(stop_h) + str(0) + str(stop_m)
                     else:
                         stopview = str(stop_h) + str(stop_m)
-                    for p in range(222):
+                    for p in range(221):
                         digswitch(1, int(stopview[0]))    #左から1番目の7セグメントLEDへ、数字を表示する
                         time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
                         digswitch(2, int(stopview[1]))    #左から2番目の7セグメントLEDへ、数字を表示する
+                        GPIO.output(DP, GPIO.HIGH)
                         time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
+                        GPIO.output(DP, GPIO.LOW)
                         digswitch(3, int(stopview[2]))   #左から3番目の7セグメントLEDへ、数字を表示する
                         time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
                         digswitch(4, int(stopview[3]))   #左から4番目の7セグメントLEDへ、数字を表示する
@@ -419,11 +425,13 @@ try:                                   #目的の処理を記述する
                         s4 = 0
                         while(s3 != 1 and s4 != 1):
                             stoptime += 1
-                            for p in range(222):
+                            for p in range(221):
                                 digswitch(1, laptime0)    #左から1番目の7セグメントLEDへ、数字を表示する
                                 time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
                                 digswitch(2, laptime1)    #左から2番目の7セグメントLEDへ、数字を表示する
+                                GPIO.output(DP, GPIO.HIGH)
                                 time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
+                                GPIO.output(DP, GPIO.LOW)
                                 digswitch(3, laptime2)   #左から3番目の7セグメントLEDへ、数字を表示する
                                 time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
                                 digswitch(4, laptime3)   #左から4番目の7セグメントLEDへ、数字を表示する
@@ -454,7 +462,9 @@ try:                                   #目的の処理を記述する
             digswitch(1, int(stopview[0]))    #左から1番目の7セグメントLEDへ、数字を表示する
             time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
             digswitch(2, int(stopview[1]))    #左から2番目の7セグメントLEDへ、数字を表示する
+            GPIO.output(DP, GPIO.HIGH)
             time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
+            GPIO.output(DP, GPIO.LOW)
             digswitch(3, int(stopview[2]))   #左から3番目の7セグメントLEDへ、数字を表示する
             time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
             digswitch(4, int(stopview[3]))   #左から4番目の7セグメントLEDへ、数字を表示する
@@ -510,7 +520,7 @@ try:                                   #目的の処理を記述する
             if s4 == 1:
                 stopsignal = False
                 time_lb = False
-                timing_ctl = 222
+                timing_ctl = 221
                 s4 = 0
                 while (s4 != 1):
                     timer1 = timetime // 60
@@ -527,7 +537,9 @@ try:                                   #目的の処理を記述する
                         digswitch(1, int(timeview[0]))    #左から1番目の7セグメントLEDへ、数字を表示する
                         time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
                         digswitch(2, int(timeview[1]))    #左から2番目の7セグメントLEDへ、数字を表示する
+                        GPIO.output(DP, GPIO.HIGH)
                         time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
+                        GPIO.output(DP, GPIO.LOW)
                         digswitch(3, int(timeview[2]))   #左から3番目の7セグメントLEDへ、数字を表示する
                         time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
                         digswitch(4, int(timeview[3]))   #左から4番目の7セグメントLEDへ、数字を表示する
@@ -575,7 +587,9 @@ try:                                   #目的の処理を記述する
             digswitch(1, int(timeview[0]))    #左から1番目の7セグメントLEDへ、数字を表示する
             time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
             digswitch(2, int(timeview[1]))    #左から2番目の7セグメントLEDへ、数字を表示する
+            GPIO.output(DP, GPIO.HIGH)
             time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
+            GPIO.output(DP, GPIO.LOW)
             digswitch(3, int(timeview[2]))   #左から3番目の7セグメントLEDへ、数字を表示する
             time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
             digswitch(4, int(timeview[3]))   #左から4番目の7セグメントLEDへ、数字を表示する
@@ -699,7 +713,7 @@ try:                                   #目的の処理を記述する
                 module = module - 8192                     #温度センサモジュールの整数値から8192を引く
             module = module*0.0625                         #温度センサモジュールの整数値へ0.0625をかける
             temp = str(Decimal(str(module)).quantize(Decimal('0.01'))*100)
-            for p in range(222):
+            for p in range(221):
                 digswitch(1, int(temp[0]))   #左から1番目の7セグメントLEDへ、数字を表示する
                 time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機する
                 digswitch(2, int(temp[1]))   #左から2番目の7セグメントLEDへ、数字を表示する
