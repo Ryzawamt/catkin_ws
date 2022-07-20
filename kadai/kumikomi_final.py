@@ -172,7 +172,7 @@ def digswitch(L_num, figs):            #7セグメントLEDを1桁ずつ制御�
         display(figs)                  #その桁において数字を表示する
 
 def modeprinter(mode_num):             #約1秒間モード番号を左から1番目の7セグメントLEDへ表示する関数
-    for p in range(222):               #以下の9行の処理を222回繰り返す
+    for p in range(214):               #以下の9行の処理を214回繰り返す
         digswitch(1, mode_num)         #左から1番目の7セグメントLEDへ、モード番号を表示する
         time.sleep(0.001)              #7セグメントLEDを切り替えるため、0.001秒待機する
         digswitch(2, 10)               #左から2番目の7セグメントLEDには何も表示しない
@@ -307,7 +307,7 @@ try:                                   #目的の処理を記述する
                     else:                    #変数alarm1の値が0でない場合
                         alarm1 -= 1          #変数alarm1の値から1を減算する
                     s3 = 0                   #変数s3の値を0とする
-            elif setup == 1 or setup == -1:  #変数setupの値が1または-1の場合、左から2番目の数字を調整
+            elif setup == 1:                 #変数setupの値が1の場合、左から2番目の数字を調整する
                 if s1 == 1:                  #SW1が押された場合
                     if alarm2 == 9:          #変数alarm2の値が9である場合
                         alarm2 = 0           #変数alarm2の数値を0とする
@@ -320,7 +320,7 @@ try:                                   #目的の処理を記述する
                     else:                    #変数alarm2の値が0でない場合
                         alarm2 -= 1          #変数alarm2の値から1を減算する
                     s3 = 0                   #変数s3の値を0とする
-            elif setup == 2 or setup == -2:  #変数setupの値が2または-2の場合、左から3番目の数字を調整
+            elif setup == 2:                 #変数setupの値が2の場合、左から3番目の数字を調整する
                 if s1 == 1:                  #SW1が押された場合
                     if alarm3 == 5:          #変数alarm3の値が5である場合
                         alarm3 = 0           #変数alarm3の数値を0とする
@@ -333,7 +333,7 @@ try:                                   #目的の処理を記述する
                     else:                    #変数alarm3の値が0でない場合
                         alarm3 -= 1          #変数alarm3の値から1を減算する
                     s3 = 0                   #変数s3の値を0とする
-            elif setup == 3 or setup == -3:  #変数setupの値が3または-3の場合、左から4番目の数字を調整
+            elif setup == 3:                 #変数setupの値が3の場合、左から4番目の数字を調整する
                 if s1 == 1:                  #SW1が押された場合
                     if alarm4 == 9:          #変数alarm4の値が9である場合
                         alarm4 = 0           #変数alarm4の数値を0とする
@@ -400,7 +400,7 @@ try:                                   #目的の処理を記述する
                         stopview = str(stop_h) + str(0) + str(stop_m)  #秒数へ0を連結
                     else:                                      #分数と秒数が10以上の場合
                         stopview = str(stop_h) + str(stop_m)   #分数と秒数をそのまま連結
-                    for p in range(221):                       #1秒となる221回分繰り返す
+                    for p in range(213):                       #1秒となる213回分繰り返す
                         digswitch(1, int(stopview[-4]))  #左から1番目の7セグメントLEDへ、数字を表示
                         time.sleep(0.001)                #7セグメントLEDの切り替えより、0.001秒待機
                         digswitch(2, int(stopview[-3]))  #左から2番目の7セグメントLEDへ、数字を表示
@@ -425,7 +425,7 @@ try:                                   #目的の処理を記述する
                         s4 = 0                           #変数s4の値を0とする
                         while(s3 != 1 and s4 != 1):        #SW3またはSW4が押されるまで繰り返す
                             stoptime += 1                  #計測時間へ1を加算する
-                            for p in range(221):           #1秒となる221回分繰り返す
+                            for p in range(213):           #1秒となる213回分繰り返す
                                 digswitch(1, laptime0)     #左から1番目の7セグメントLEDへ数字を表示
                                 time.sleep(0.001)          #7セグメントLEDの切り替えより0.001秒待機
                                 digswitch(2, laptime1)     #左から2番目の7セグメントLEDへ数字を表示
@@ -520,7 +520,7 @@ try:                                   #目的の処理を記述する
             if s4 == 1:                      #SW4が押された場合
                 stopsignal = False           #停止させる判定をFalseとする
                 time_lb = False              #点滅の変化をFalseとする
-                timing_ctl = 221             #繰り返しの回数を、1秒となる221回とおく
+                timing_ctl = 213             #繰り返しの回数を、1秒となる213回とおく
                 s4 = 0                       #変数s4の値を0とする
                 while (s4 != 1):             #SW4が押されるまで繰り返す
                     timer1 = timetime // 60  #計測時間を60で割った商を取り出し、分数とする
@@ -551,7 +551,7 @@ try:                                   #目的の処理を記述する
                         stopsignal = False              #停止させる判定をFalseとする
                         break                           #繰り返し処理を終了する
                     if timetime == 0:                   #計測時間timetimeが0となった場合
-                        timing_ctl = 111                #繰り返しの回数を0.5秒となる111回とおく
+                        timing_ctl = 106                #繰り返しの回数を0.5秒となる106回とおく
                         if time_lb == False:                       #点滅の変化がFalseの場合
                             GPIO.output(LED_G, GPIO.LOW)           #緑色LEDを消灯する
                             GPIO.output(LED_R, GPIO.HIGH)          #赤色LEDを点灯する
@@ -610,7 +610,7 @@ try:                                   #目的の処理を記述する
                 ans_num = 3              #7セグメントLEDへ表示する要素番号を格納する変数
                 memory.append(random.randint(0,9))     #0から9の範囲の整数から、無作為に1つ生成
                 for i in range (len(memory)-3):        #生成した要素の個数分繰り返す
-                    for p in range(222):               #1秒となる222回分繰り返す
+                    for p in range(214):               #1秒となる214回分繰り返す
                         digswitch(1, int(memory[i]))   #左から1番目の7セグメントLEDへ、数字を表示
                         time.sleep(0.001)              #7セグメントLEDを切り替えるため、0.001秒待機
                         digswitch(2, int(memory[i+1])) #左から2番目の7セグメントLEDへ、数字を表示
@@ -719,7 +719,7 @@ try:                                   #目的の処理を記述する
                 module = module - 8192       #温度センサモジュールの整数値から8192を引く
             module = module*0.0625           #温度センサモジュールの整数値へ0.0625をかける
             temp = str(Decimal(str(module)).quantize(Decimal('0.01'))*100)  #小数第2位で四捨五入
-            for p in range(221):             #1秒となる221回分繰り返す
+            for p in range(213):             #1秒となる213回分繰り返す
                 digswitch(1, int(temp[0]))   #左から1番目の7セグメントLEDへ、数字を表示
                 time.sleep(0.001)            #7セグメントLEDを切り替えるため、0.001秒待機
                 digswitch(2, int(temp[1]))   #左から2番目の7セグメントLEDへ、数字を表示
